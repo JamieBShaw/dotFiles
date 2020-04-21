@@ -1,6 +1,7 @@
 call plug#begin('~/loc:al/share/nvim/plugged')
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'bling/vim-airline'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'jremmen/vim-ripgrep'
 Plug 'unblevable/quick-scope'
@@ -62,6 +63,7 @@ nmap ++ <plug>NERDCommenterToggle
 let g:coc_global_extensions = [
   \ 'coc-snippets',
   \ 'coc-pairs',
+  \ 'coc-yaml',
   \ 'coc-tsserver',
   \ 'coc-eslint', 
   \ 'coc-prettier', 
