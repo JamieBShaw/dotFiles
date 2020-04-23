@@ -107,6 +107,9 @@ let g:vem_tabline_show = 2
 let g:vem_tabline_show_number = 'index'
 
 " Delete current buffer and then select next buffer in list
+" Delete buffer
+nmap <leader>x :call <SID>DeleteCurrentBuffer()<CR>
+
 function! DeleteCurrentBuffer() abort
     let current_buffer = bufnr('%')
     let next_buffer = vem_tabline#tabline.get_replacement_buffer()
@@ -120,8 +123,6 @@ function! DeleteCurrentBuffer() abort
     endtry
 endfunction
 
-" Delete buffer
-nmap <leader>x :call DeleteCurrentBuffer()<CR>
 
 set updatetime=300
 
