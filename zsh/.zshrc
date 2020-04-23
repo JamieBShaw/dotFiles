@@ -16,3 +16,4 @@ source ./zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 neofetch
 source /home/jamie/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+bindkey -v
