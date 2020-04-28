@@ -1,14 +1,22 @@
 {
   "prettier.eslintIntegration": true,
   "prettier.tslintIntegration": false,
-  "coc.preferences.formatOnSaveFiletypes": ["typescript", "typescriptreact", "javascript", "javascriptreact", "typescript.tsx", "graphql", "json"],
+  "coc.preferences.formatOnSaveFiletypes": [
+    "typescript",
+    "typescriptreact",
+    "javascript",
+    "javascriptreact",
+    "typescript.tsx",
+    "graphql",
+    "json, python, yaml"
+  ],
   "prettier.singleQuote": true,
   "suggest.noselect": false,
   "python.jediEnabled": false,
+  "python.formatting.provider": "black",
   "python.autoUpdateLanguageServer": true,
   "python.analysis.diagnosticEnabled": true,
   "yaml.schemas": {
     "kubernetes": "/*.yaml"
-}
-
+  }
 }

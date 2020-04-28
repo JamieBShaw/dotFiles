@@ -2,7 +2,7 @@ call plug#begin('~/loc:al/share/nvim/plugged')
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'bling/vim-airline'
-Plug 'ctrlpvim/ctrlp.vim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'jremmen/vim-ripgrep'
 Plug 'unblevable/quick-scope'
 Plug 'airblade/vim-gitgutter'
@@ -13,6 +13,7 @@ Plug 'morhetz/gruvbox'
 Plug 'Yggdroot/indentLine'
 Plug 'mbbill/undotree'
 Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdcommenter'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'ryanoasis/vim-devicons'
@@ -24,6 +25,7 @@ call plug#end()
 let mapleader=" "
 
 syntax on
+filetype plugin on
 
 set hidden
 set noerrorbells
@@ -40,9 +42,10 @@ set nobackup
 set undodir=~/.vim/undodir
 set undofile
 set incsearch
-set hlsearch
+set nohlsearch
 set cursorline
 set wildmode=longest,list,full
+set termguicolors
 
 colorscheme gruvbox
 set background=dark
@@ -76,9 +79,7 @@ if executable('rg')
     let g:rg_derive_root='true'
 endif
 
-let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
-let g:ctrlp_use_caching = 0
-
+let g:vrfr_rg = 'true'
 let g:netrw_browse_split = 2
 let g:netrw_banner = 0
 let g:netrw_winsize = 25
@@ -92,6 +93,9 @@ nnoremap <leader>pv :wincmd v<bar> :Ex <bar> :vertical resize 30<CR>
 nnoremap <Leader>ps :Rg<SPACE>
 nnoremap <silent> <Leader>+ :vertical resize +5<CR>
 nnoremap <silent> <Leader>- :vertical resize -5<CR>
+
+"FZF 
+nnoremap <C-p> :GFiles<CR
 
 "vem-tabline
 nmap <leader>1 :VemTablineGo 1<CR>
