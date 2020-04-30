@@ -8,7 +8,10 @@
     "javascriptreact",
     "typescript.tsx",
     "graphql",
-    "json, python, yaml"
+    "json", 
+    "python", 
+    "yaml", 
+    "yml"
   ],
   "prettier.singleQuote": true,
   "suggest.noselect": false,
@@ -16,7 +19,11 @@
   "python.formatting.provider": "black",
   "python.autoUpdateLanguageServer": true,
   "python.analysis.diagnosticEnabled": true,
+  "yaml.completion": true,
+  "yaml.format.enable": true,
+  "yaml.format.singleQuote": true,
   "yaml.schemas": {
-    "kubernetes": "/*.yaml"
+    "kubernetes":  "/*.yaml"
+
   }
 }

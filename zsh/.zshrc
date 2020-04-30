@@ -7,12 +7,12 @@ zstyle :compinstall filename '/home/jamie/.zshrc'
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(user dir vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(root_indicator)
 
-autoload -Uz compinit
-compinit
+autoload -Uz compinit && compinit -i
 #source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.config/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.config/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ~/powerlevel10k/powerlevel10k.zsh-theme
+fpath=(~/.config/.zsh/completion $fpath)
 neofetch
 # The following lines were added by compinstall
 

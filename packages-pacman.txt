@@ -3,9 +3,13 @@ postgresql
 pgadmin4
 nodejs
 npm
+redis
 docker
+docker-compose
+docker-machine
 kubectl
 minikube
+virtualbox
 vim
 neovim
 zsh-theme-powerlevel10k
