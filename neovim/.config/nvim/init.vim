@@ -1,8 +1,10 @@
+let g:fzf_install = 'yes | ./install'
 call plug#begin('~/loc:al/share/nvim/plugged')
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'bling/vim-airline'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf', { 'do': g:fzf_install }
+Plug 'junegunn/fzf.vim'
 Plug 'jremmen/vim-ripgrep'
 Plug 'unblevable/quick-scope'
 Plug 'airblade/vim-gitgutter'
@@ -18,12 +20,17 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'ryanoasis/vim-devicons'
 Plug 'pacha/vem-tabline'
+Plug 'neomake/neomake'
 Plug 'HerringtonDarkholme/yats.vim'
 
 call plug#end()
 
-let mapleader=" "
+nnoremap <up> <nop>
+nnoremap <down> <nop>
+nnoremap <left> <nop>
+nnoremap <right> <nop>
 
+let mapleader=" "
 syntax on
 filetype plugin on
 
@@ -62,7 +69,8 @@ let g:javascript_plugin_ngdoc = 1
 nmap <C-n> :NERDTreeToggle<CR>
 vmap ++ <plug>NERDCommenterToggle
 nmap ++ <plug>NERDCommenterToggle
- 
+let NERDTreeShowHidden=1
+
 let g:coc_global_extensions = [
   \ 'coc-snippets',
   \ 'coc-pairs',
@@ -95,9 +103,15 @@ nnoremap <silent> <Leader>+ :vertical resize +5<CR>
 nnoremap <silent> <Leader>- :vertical resize -5<CR>
 
 "FZF 
-nnoremap <C-p> :GFiles<CR
+nnoremap <C-p> :FZF<cr>
+nnoremap <C-f> :GFiles<CR>
+nnoremap <silent> <leader>F :FZF ~<cr>
+
 
 "vem-tabline
+"
+nmap <leader>, <Plug>vem_prev_buffer-
+nmap <leader>. <Plug>vem_next_buffer-
 nmap <leader>1 :VemTablineGo 1<CR>
 nmap <leader>2 :VemTablineGo 2<CR>
 nmap <leader>3 :VemTablineGo 3<CR>
@@ -107,12 +121,12 @@ nmap <leader>6 :VemTablineGo 6<CR>
 nmap <leader>7 :VemTablineGo 7<CR>
 nmap <leader>8 :VemTablineGo 8<CR>
 nmap <leader>9 :VemTablineGo 9<CR>
+nmap <leader>10 :VemTablineGo 10<CR>
 let g:vem_tabline_show = 2
 let g:vem_tabline_show_number = 'index'
 
 " Delete current buffer and then select next buffer in list
 " Delete buffer
-nmap <leader>x :call <SID>DeleteCurrentBuffer()<CR>
 
 function! DeleteCurrentBuffer() abort
     let current_buffer = bufnr('%')
@@ -127,6 +141,7 @@ function! DeleteCurrentBuffer() abort
     endtry
 endfunction
 
+nmap <leader>x :call DeleteCurrentBuffer()<CR>
 
 set updatetime=300
 

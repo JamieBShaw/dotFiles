@@ -6,15 +6,19 @@
     "typescriptreact",
     "javascript",
     "javascriptreact",
-    "typescript.tsx",
     "graphql",
     "json", 
-    "python", 
-    "yaml", 
-    "yml"
+    "python"
   ],
+  "tsserver.formatOnType": false,
+  "tsserver.log": "verbose",
+  "tsserver.trace.server": "verbose",
+  "javascript.suggest.autoImports": true,
+  "javascript.validate.enable": true,
+  "tsserver.enableJavascript": true,
   "prettier.singleQuote": true,
   "suggest.noselect": false,
+  "python.pythonPath": "/usr/bin/python3.8",
   "python.jediEnabled": false,
   "python.formatting.provider": "black",
   "python.autoUpdateLanguageServer": true,
@@ -22,8 +26,8 @@
   "yaml.completion": true,
   "yaml.format.enable": true,
   "yaml.format.singleQuote": true,
+  "yaml.hover": true,
   "yaml.schemas": {
-    "kubernetes":  "/*.yaml"
-
+    "kubernetes":  ["/*.yaml","/*.yml"]
   }
 }
