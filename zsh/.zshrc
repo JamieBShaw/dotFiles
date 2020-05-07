@@ -1,4 +1,4 @@
-
+export EDITOR="nvim"
 HISTFILE=~/.histfile
 HISTSIZE=2000
 HISTSIZE=2000
@@ -19,6 +19,7 @@ neofetch
 
 zstyle ':completion:*' completer _complete _ignored
 zstyle :compinstall filename '/home/james/.zshrc'
-
+alias -g vim="nvim"
+alias -g vi="nvim"
 bindkey -v
 # End of lines added by compinstall

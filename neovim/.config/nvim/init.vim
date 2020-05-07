@@ -2,7 +2,8 @@ let g:fzf_install = 'yes | ./install'
 call plug#begin('~/loc:al/share/nvim/plugged')
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'junegunn/fzf', { 'do': g:fzf_install }
 Plug 'junegunn/fzf.vim'
 Plug 'jremmen/vim-ripgrep'
@@ -13,10 +14,13 @@ Plug 'pangloss/vim-javascript'
 Plug 'ianks/vim-tsx'
 Plug 'morhetz/gruvbox'
 Plug 'Yggdroot/indentLine'
+Plug 'luochen1990/rainbow'
+Plug 'frazrepo/vim-rainbow'
 Plug 'mbbill/undotree'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
 Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'tpope/vim-fugitive'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'ryanoasis/vim-devicons'
 Plug 'pacha/vem-tabline'
@@ -86,6 +90,13 @@ let g:coc_global_extensions = [
 if executable('rg')
     let g:rg_derive_root='true'
 endif
+
+"Airline
+let g:airline_powerline_fonts = 1
+
+
+"Vim Rainbow
+let g:rainbow_active = 1
 
 let g:vrfr_rg = 'true'
 let g:netrw_browse_split = 2
