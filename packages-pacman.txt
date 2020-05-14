@@ -3,6 +3,7 @@ postgresql
 pgadmin4
 nodejs
 npm
+yarn
 redis
 docker
 docker-compose
