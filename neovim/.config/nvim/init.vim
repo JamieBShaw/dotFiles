@@ -26,7 +26,8 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'pacha/vem-tabline'
 Plug 'neomake/neomake'
 Plug 'HerringtonDarkholme/yats.vim'
-
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'sheerun/vim-polyglot'
 call plug#end()
 
 nnoremap <up> <nop>
@@ -56,6 +57,8 @@ set incsearch
 set nohlsearch
 set cursorline
 set wildmode=longest,list,full
+set wildmenu
+set wildignore+=**/node_modules/**
 set termguicolors
 
 colorscheme gruvbox
@@ -66,6 +69,12 @@ highlight CursorLine cterm=NONE
 "Quickscopre highlight
 let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 highlight QuickScopePrimary cterm=underline
+
+" Vim-Go
+
+let g:go_auto_type_info = 1
+let g:go_fmt_command = "goimports"
+
 
 let g:javascript_plugin_jsdoc = 1
 let g:javascript_plugin_ngdoc = 1
@@ -82,9 +91,11 @@ let g:coc_global_extensions = [
   \ 'coc-tsserver',
   \ 'coc-eslint', 
   \ 'coc-prettier', 
+  \ 'coc-html',
   \ 'coc-json',
   \ 'coc-java',
-  \ 'coc-python'
+  \ 'coc-python',
+  \ 'coc-highlight'
   \ ]
 
 if executable('rg')
@@ -93,6 +104,9 @@ endif
 
 "Airline
 let g:airline_powerline_fonts = 1
+
+"Vim Go
+autocmd BufWritePre *.go :call CocAction('runCommand', 'editor.action.organizeImport')
 
 
 "Vim Rainbow
@@ -132,7 +146,6 @@ nmap <leader>6 :VemTablineGo 6<CR>
 nmap <leader>7 :VemTablineGo 7<CR>
 nmap <leader>8 :VemTablineGo 8<CR>
 nmap <leader>9 :VemTablineGo 9<CR>
-nmap <leader>10 :VemTablineGo 10<CR>
 let g:vem_tabline_show = 2
 let g:vem_tabline_show_number = 'index'
 

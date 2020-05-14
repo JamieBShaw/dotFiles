@@ -7,13 +7,13 @@ redis
 docker
 docker-compose
 docker-machine
-aws-cli
 kubectl
 minikube
-helm
 virtualbox
 vim
 neovim
+go
+alacritty
 zsh-theme-powerlevel10k
 zsh-completions
 zsh

@@ -1,6 +1,7 @@
 {
   "prettier.eslintIntegration": true,
   "prettier.tslintIntegration": false,
+  "coc.preferences.bracketEnterImprove": true,
   "coc.preferences.formatOnSaveFiletypes": [
     "typescript",
     "typescriptreact",
@@ -11,18 +12,38 @@
     "python"
   ],
   "tsserver.npm": "/usr/bin/npm",
+  "tsserver.enableJavascript": true,
+  "typescript.format.insertSpaceBeforeFunctionParenthesis": true,
+  "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis": true,
+  "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
+  "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": true,
   "javascript.suggest.autoImports": true,
   "javascript.validate.enable": true,
   "javascript.format.enabled": true,
-  "tsserver.enableJavascript": true,
   "prettier.singleQuote": true,
-  "suggest.noselect": false,
+  "suggest.noselect": true,
   "python.linting.enabled": true,
   "python.pythonPath": "/usr/bin/python3.8",
   "python.jediEnabled": false,
   "python.formatting.provider": "black",
   "python.autoUpdateLanguageServer": true,
   "python.analysis.diagnosticEnabled": true,
+  "coc.preferences.colorSupport": true,
+  "languageserver": {
+    "golang": {
+      "command": "/home/james/go/bin/gopls",
+      "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
+      "filetypes": ["go"],
+      "initializationOptions": {
+        "usePlaceholders": true,
+        "hoverKind": "FullDocumentation",
+        "analyses": {
+        "unreachable": true,
+        "unusedparams": true
+        }
+      }
+    }
+  },
   "yaml.completion": true,
   "yaml.format.enable": true,
   "yaml.format.singleQuote": true,
