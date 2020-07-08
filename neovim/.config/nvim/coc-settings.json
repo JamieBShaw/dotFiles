@@ -1,6 +1,7 @@
 {
   "prettier.eslintIntegration": true,
   "prettier.tslintIntegration": false,
+  "snippets.userSnippetsDirectory": "~/.config/nvim/snips",
   "coc.preferences.bracketEnterImprove": true,
   "coc.preferences.formatOnSaveFiletypes": [
     "typescript",
@@ -8,7 +9,7 @@
     "javascript",
     "javascriptreact",
     "graphql",
-    "json", 
+    "json",
     "python"
   ],
   "tsserver.npm": "/usr/bin/npm",
@@ -38,8 +39,8 @@
         "usePlaceholders": true,
         "hoverKind": "FullDocumentation",
         "analyses": {
-        "unreachable": true,
-        "unusedparams": true
+          "unreachable": true,
+          "unusedparams": true
         }
       }
     }
@@ -49,6 +50,6 @@
   "yaml.format.singleQuote": true,
   "yaml.hover": true,
   "yaml.schemas": {
-    "kubernetes":  ["/*.yaml","/*.yml"]
+    "kubernetes": ["/*.yaml", "/*.yml"]
   }
 }

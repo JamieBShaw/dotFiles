@@ -2,6 +2,7 @@ let g:fzf_install = 'yes | ./install'
 call plug#begin('~/loc:al/share/nvim/plugged')
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'honza/vim-snippets'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'junegunn/fzf', { 'do': g:fzf_install }
@@ -12,7 +13,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'leafgarland/typescript-vim'
 Plug 'pangloss/vim-javascript'
 Plug 'ianks/vim-tsx'
-Plug 'morhetz/gruvbox'
+Plug 'gruvbox-community/gruvbox'
 Plug 'Yggdroot/indentLine'
 Plug 'luochen1990/rainbow'
 Plug 'frazrepo/vim-rainbow'
@@ -89,6 +90,7 @@ let g:coc_global_extensions = [
   \ 'coc-pairs',
   \ 'coc-yaml',
   \ 'coc-tsserver',
+  \ 'coc-deno',
   \ 'coc-eslint', 
   \ 'coc-prettier', 
   \ 'coc-html',
