@@ -9,6 +9,11 @@ POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(user dir vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(root_indicator)
 POWERLEVEL9K_SHORTEN_DIR_LENGTH=1
 autoload -Uz compinit && compinit -i
+export ANDROID_HOME=$HOME/Library/Android/sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/tools/bin
+export PATH=$PATH:$ANDROID_HOME/platform-tools
 #source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.config/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.config/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -22,4 +27,7 @@ zstyle :compinstall filename '/home/james/.zshrc'
 alias -g vim="nvim"
 alias -g vi="nvim"
 bindkey -v
+eval "$(gh completion -s zsh)"
 # End of lines added by compinstall
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
