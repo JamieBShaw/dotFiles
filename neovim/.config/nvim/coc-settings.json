@@ -2,6 +2,10 @@
   "prettier.eslintIntegration": true,
   "prettier.tslintIntegration": false,
   "snippets.userSnippetsDirectory": "~/.config/nvim/snips",
+  "snippets.extends": {
+    "typescript": ["typescriptreact"],
+    "typescriptreact": ["typescript"]
+  },
   "coc.preferences.bracketEnterImprove": true,
   "coc.preferences.formatOnSaveFiletypes": [
     "typescript",
@@ -14,6 +18,7 @@
   ],
   "tsserver.npm": "/usr/bin/npm",
   "tsserver.enableJavascript": true,
+  "tsserver.log": "verbose",
   "typescript.format.insertSpaceBeforeFunctionParenthesis": true,
   "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis": true,
   "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,

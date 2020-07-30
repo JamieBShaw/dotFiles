@@ -2,7 +2,6 @@ let g:fzf_install = 'yes | ./install'
 call plug#begin('~/loc:al/share/nvim/plugged')
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'honza/vim-snippets'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'junegunn/fzf', { 'do': g:fzf_install }
@@ -46,12 +45,17 @@ set tabstop=2 softtabstop=2
 set shiftwidth=2
 set expandtab
 set smartindent
+set relativenumber
+set mouse=a
 set nu
 set nowrap
 set smartcase
 set ignorecase
 set noswapfile
 set nobackup
+set nowritebackup
+set updatetime=300
+set clipboard=unnamedplus
 set undodir=~/.vim/undodir
 set undofile
 set incsearch
@@ -61,6 +65,7 @@ set wildmode=longest,list,full
 set wildmenu
 set wildignore+=**/node_modules/**
 set termguicolors
+set smarttab
 
 colorscheme gruvbox
 set background=dark
@@ -90,7 +95,6 @@ let g:coc_global_extensions = [
   \ 'coc-pairs',
   \ 'coc-yaml',
   \ 'coc-tsserver',
-  \ 'coc-deno',
   \ 'coc-eslint', 
   \ 'coc-prettier', 
   \ 'coc-html',
@@ -136,7 +140,12 @@ nnoremap <silent> <leader>F :FZF ~<cr>
 
 
 "vem-tabline
-"
+
+" Delete current buffer and then select next buffer in list
+" Delete buffer
+
+
+nmap <leader>x :bdelete<CR>
 nmap <leader>, <Plug>vem_prev_buffer-
 nmap <leader>. <Plug>vem_next_buffer-
 nmap <leader>1 :VemTablineGo 1<CR>
@@ -148,26 +157,14 @@ nmap <leader>6 :VemTablineGo 6<CR>
 nmap <leader>7 :VemTablineGo 7<CR>
 nmap <leader>8 :VemTablineGo 8<CR>
 nmap <leader>9 :VemTablineGo 9<CR>
+
+
+
 let g:vem_tabline_show = 2
 let g:vem_tabline_show_number = 'index'
+let g:vem_tabline_show_icon = 1
 
-" Delete current buffer and then select next buffer in list
-" Delete buffer
 
-function! DeleteCurrentBuffer() abort
-    let current_buffer = bufnr('%')
-    let next_buffer = vem_tabline#tabline.get_replacement_buffer()
-    try
-        exec 'confirm ' . current_buffer . 'bdelete'
-        if next_buffer != 0
-            exec next_buffer . 'buffer'
-        endif
-    catch /E516:/
-       " If the operation is cancelled, do nothing
-    endtry
-endfunction
-
-nmap <leader>x :call DeleteCurrentBuffer()<CR>
 
 set updatetime=300
 
