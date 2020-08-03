@@ -1,40 +1,53 @@
 {
+  //Prettier
   "prettier.eslintIntegration": true,
   "prettier.tslintIntegration": false,
+  "prettier.singleQuote": true,
+  //Snippets
   "snippets.userSnippetsDirectory": "~/.config/nvim/snips",
   "snippets.extends": {
     "typescript": ["typescriptreact"],
     "typescriptreact": ["typescript"]
   },
+  // COC
   "coc.preferences.bracketEnterImprove": true,
+  "coc.preferences.colorSupport": true,
+  "coc.preferences.extensionUpdateCheck": "daily",
   "coc.preferences.formatOnSaveFiletypes": [
     "typescript",
+    "html",
+    "css",
     "typescriptreact",
     "javascript",
     "javascriptreact",
     "graphql",
     "json",
+    "java",
+    "yaml",
+    "yml",
     "python"
   ],
+  // TSServer
   "tsserver.npm": "/usr/bin/npm",
   "tsserver.enableJavascript": true,
   "tsserver.log": "verbose",
+  // Typescript
   "typescript.format.insertSpaceBeforeFunctionParenthesis": true,
   "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis": true,
   "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
   "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": true,
+  // Javascript
   "javascript.suggest.autoImports": true,
   "javascript.validate.enable": true,
   "javascript.format.enabled": true,
-  "prettier.singleQuote": true,
   "suggest.noselect": true,
+  // Python
   "python.linting.enabled": true,
   "python.pythonPath": "/usr/bin/python3.8",
   "python.jediEnabled": false,
   "python.formatting.provider": "black",
   "python.autoUpdateLanguageServer": true,
   "python.analysis.diagnosticEnabled": true,
-  "coc.preferences.colorSupport": true,
   "languageserver": {
     "golang": {
       "command": "/home/james/go/bin/gopls",
@@ -50,6 +63,7 @@
       }
     }
   },
+  //YAML
   "yaml.completion": true,
   "yaml.format.enable": true,
   "yaml.format.singleQuote": true,
