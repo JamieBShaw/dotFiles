@@ -14,14 +14,14 @@ export PATH=$PATH:$ANDROID_HOME/emulator
 export PATH=$PATH:$ANDROID_HOME/tools
 export PATH=$PATH:$ANDROID_HOME/tools/bin
 export PATH=$PATH:$ANDROID_HOME/platform-tools
-#source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.config/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.config/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ~/powerlevel10k/powerlevel10k.zsh-theme
 fpath=(~/.config/.zsh/completion $fpath)
 neofetch
-# The following lines were added by compinstall
 
+
+# The following lines were added by compinstall
 zstyle ':completion:*' completer _complete _ignored
 zstyle :compinstall filename '/home/james/.zshrc'
 alias -g vim="nvim"
