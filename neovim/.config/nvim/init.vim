@@ -89,6 +89,7 @@ let g:go_highlight_structs = 1
 let g:go_highlight_types = 1
 let g:go_highlight_function_parameters = 1
 let g:go_highlight_function_calls = 1
+
 let g:go_highlight_generate_tags = 1
 let g:go_highlight_format_strings = 1
 let g:go_highlight_variable_declarations = 1
@@ -123,7 +124,8 @@ let g:coc_global_extensions = [
   \ 'coc-json',
   \ 'coc-java',
   \ 'coc-python',
-  \ 'coc-highlight'
+  \ 'coc-highlight',
+  \ 'coc-markdownlint'
   \ ]
 
 if executable('rg')
@@ -159,13 +161,10 @@ nnoremap <silent> <Leader>- :vertical resize -5<CR>
 nnoremap <C-p> :FZF<cr>
 nnoremap <C-f> :GFiles<CR>
 nnoremap <silent> <leader>F :FZF ~<cr>
+let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8 } }
 
 
 "vem-tabline
-
-" Delete current buffer and then select next buffer in list
-" Delete buffer
-
 
 nmap <leader>x :bdelete<CR>
 nmap <leader>, <Plug>vem_prev_buffer-
@@ -179,8 +178,6 @@ nmap <leader>6 :VemTablineGo 6<CR>
 nmap <leader>7 :VemTablineGo 7<CR>
 nmap <leader>8 :VemTablineGo 8<CR>
 nmap <leader>9 :VemTablineGo 9<CR>
-
-
 
 let g:vem_tabline_show = 2
 let g:vem_tabline_show_number = 'index'
