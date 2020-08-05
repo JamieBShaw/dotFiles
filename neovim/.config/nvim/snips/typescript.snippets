@@ -11,6 +11,39 @@ export const ${1:ComponentName}: React.FC = () => {
 endsnippet
 
 
+snippet trcps "React context provider scaffold"
+import React, {createContext, useReducer, Dispatch } from 'react';
+import { stateReducer } from '../reducers';
+
+// Todo:
+// - Write types/ interfaces
+// - Write reducer
+// - Write actions
+// - Import them to this file
+
+
+const initialState: IState = {}; //initialState Interface 
+
+interface IContextProps {
+state: ISate,
+dispatch: Dispatch<IStateActions>
+}
+
+export const StateContext = createContext({} as IContextProps);
+
+export const StateProvider = (props: any): JSX.Element => {
+const [state, dispatch] = useReducer(stateReducer, initialState)
+
+return (
+		<StateContext.Provider value={{state, dispatch}}>
+			{props.children}
+		</StateContext.Provider>
+);
+};
+
+endsnippet
+
+
 
 
 

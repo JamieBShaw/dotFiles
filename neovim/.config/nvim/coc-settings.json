@@ -36,11 +36,15 @@
   "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis": true,
   "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
   "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": true,
+  "typescript.suggest.autoImports": true,
+  "typescript.updateImportsOnFileMove.enable": true,
   // Javascript
   "javascript.suggest.autoImports": true,
   "javascript.validate.enable": true,
   "javascript.format.enabled": true,
-  "suggest.noselect": true,
+  "javascript.format.semicolons": "insert",
+  "javascript.updateImportsOnFileMove.enable": true,
+  "suggest.noselect": false,
   // Python
   "python.linting.enabled": true,
   "python.pythonPath": "/usr/bin/python3.8",
@@ -63,6 +67,7 @@
       }
     }
   },
+  //Java
   //YAML
   "yaml.completion": true,
   "yaml.format.enable": true,
