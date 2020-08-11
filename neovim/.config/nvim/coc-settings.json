@@ -25,6 +25,7 @@
     "java",
     "yaml",
     "yml",
+    "go",
     "python"
   ],
   // TSServer
@@ -74,6 +75,7 @@
   "yaml.format.singleQuote": true,
   "yaml.hover": true,
   "yaml.schemas": {
-    "kubernetes": ["/*.yaml", "/*.yml"]
+    "kubernetes": ["/*.kub.yaml", "/*.kub.yml"],
+    "https://json.schemastore.org/swagger-2.0": ["/*.swag.yaml", "/*.swag.yml"]
   }
 }

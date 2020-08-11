@@ -29,5 +29,7 @@ alias -g vi="nvim"
 bindkey -v
 eval "$(gh completion -s zsh)"
 # End of lines added by compinstall
-
+if [ -n "${NVIM_LISTEN_ADDRESS+x}" ]; then
+  export COLORTERM="truecolor"
+fi
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

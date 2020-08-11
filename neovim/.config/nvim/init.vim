@@ -9,10 +9,13 @@ Plug 'junegunn/fzf.vim'
 Plug 'jremmen/vim-ripgrep'
 Plug 'unblevable/quick-scope'
 Plug 'airblade/vim-gitgutter'
-Plug 'leafgarland/typescript-vim'
-Plug 'pangloss/vim-javascript'
-Plug 'ianks/vim-tsx'
+"Plug 'puremourning/vimspector' Hopefully I can get this working one day
+
 Plug 'gruvbox-community/gruvbox'
+Plug 'overcache/NeoSolarized'
+Plug 'owickstrom/vim-colors-paramount'
+Plug 'zacanger/angr.vim'
+
 Plug 'Yggdroot/indentLine'
 Plug 'ap/vim-css-color' "Displays a preview of colors with CS
 Plug 'luochen1990/rainbow'
@@ -28,7 +31,6 @@ Plug 'pacha/vem-tabline'
 Plug 'neomake/neomake'
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-Plug 'sheerun/vim-polyglot'
 call plug#end()
 
 nnoremap <up> <nop>
@@ -55,9 +57,9 @@ set ignorecase
 set noswapfile
 set nobackup
 set nowritebackup
-set updatetime=300
+set updatetime=200
 set clipboard=unnamedplus
-set undodir=~/.vim/undodir
+set undodir=~/.config/nvim/undodir
 set undofile
 set incsearch
 set nohlsearch
@@ -73,38 +75,19 @@ if exists('+termguicolors')
     let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 endif
 
-colorscheme gruvbox
+
+colorscheme angr
 set background=dark
 
 highlight CursorLine cterm=NONE 
 
-" --- vim go (polyglot) settings.
-let g:go_highlight_build_constraints = 1
-let g:go_highlight_extra_types = 1
-let g:go_highlight_fields = 1
-let g:go_highlight_functions = 1
-let g:go_highlight_methods = 1
-let g:go_highlight_operators = 1
-let g:go_highlight_structs = 1
-let g:go_highlight_types = 1
-let g:go_highlight_function_parameters = 1
-let g:go_highlight_function_calls = 1
-
-let g:go_highlight_generate_tags = 1
-let g:go_highlight_format_strings = 1
-let g:go_highlight_variable_declarations = 1
-let g:go_auto_sameids = 1
 
 "Quickscopre highlight
 let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 highlight QuickScopePrimary cterm=underline
 
-" Vim-Go
 
-let g:go_auto_type_info = 1
-let g:go_fmt_command = "goimports"
-
-
+" Javascript
 let g:javascript_plugin_jsdoc = 1
 let g:javascript_plugin_ngdoc = 1
 
@@ -125,19 +108,33 @@ let g:coc_global_extensions = [
   \ 'coc-java',
   \ 'coc-python',
   \ 'coc-highlight',
-  \ 'coc-markdownlint'
+  \ 'coc-markdownlint',
   \ ]
 
-if executable('rg')
-    let g:rg_derive_root='true'
-endif
 
 "Airline
 let g:airline_powerline_fonts = 1
 
 "Vim Go
 autocmd BufWritePre *.go :call CocAction('runCommand', 'editor.action.organizeImport')
+let g:go_def_mode='gopls'
+let g:go_info_mode='gopls'
+let g:go_auto_type_info = 1
+let g:go_fmt_command = "goimports"
+let g:go_fmt_fail_silently = 1
+let g:go_addtags_transform = "camelcase"
+let g:go_highlight_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_function_calls = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+let g:go_def_mapping_enabled = 0
+let g:go_term_enabled = 1
+let g:go_term_height = 300
+  let g:go_term_width = 300
 
+"let g:go_auto_sameids = 1
 
 "Vim Rainbow
 let g:rainbow_active = 1
@@ -153,16 +150,42 @@ nnoremap <leader>k :wincmd k<CR>
 nnoremap <leader>l :wincmd l<CR>
 nnoremap <leader>u :UndotreeShow<CR>
 nnoremap <leader>pv :wincmd v<bar> :Ex <bar> :vertical resize 30<CR>
-nnoremap <Leader>ps :Rg<SPACE>
+nnoremap <C-s> :Rg<CR>
 nnoremap <silent> <Leader>+ :vertical resize +5<CR>
 nnoremap <silent> <Leader>- :vertical resize -5<CR>
 
 "FZF 
-nnoremap <C-p> :FZF<cr>
+nnoremap <C-p> :Files<cr>
+"nnoremap <C-p> :FZF<cr>
 nnoremap <C-f> :GFiles<CR>
 nnoremap <silent> <leader>F :FZF ~<cr>
-let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8 } }
 
+
+let g:fzf_layout = {'up':'~90%', 'window': { 'width': 0.8, 'height': 0.8,'yoffset':0.5,'xoffset': 0.5, 'highlight': 'Todo', 'border': 'sharp' } }
+let $FZF_DEFAULT_OPTS = '--inline-info'
+
+command! -bang -nargs=? -complete=dir Files
+    \ call fzf#vim#files(<q-args>, fzf#vim#with_preview({'options' : ['--inline-info']}), <bang>0)
+
+let g:fzf_colors =
+\ { 'fg':      ['fg', 'Normal'],
+  \ 'bg':      ['bg', 'Normal'],
+  \ 'hl':      ['fg', 'Comment'],
+  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+  \ 'hl+':     ['fg', 'Statement'],
+  \ 'info':    ['fg', 'PreProc'],
+  \ 'border':  ['fg', 'Ignore'],
+  \ 'prompt':  ['fg', 'Conditional'],
+  \ 'pointer': ['fg', 'Exception'],
+  \ 'marker':  ['fg', 'Keyword'],
+  \ 'spinner': ['fg', 'Label'],
+  \ 'header':  ['fg', 'Comment'] }
+
+"RipGrep
+if executable('rg')
+    let g:rg_derive_root='true'
+endif
 
 "vem-tabline
 
@@ -183,9 +206,17 @@ let g:vem_tabline_show = 2
 let g:vem_tabline_show_number = 'index'
 let g:vem_tabline_show_icon = 1
 
+"Vimspector
+"let g:vimspector_enable_mappings = 'HUMAN'
+"nmap <Leader>dd :call vimspector#Continue()<CR>
+"nmap <Leader>dx :VimspectorReset<CR>
+"nmap <Leader>de :VimspectorEval
+"nmap <Leader>dw :VimspectorWatch
+"nmap <Leader>do :VimspectorShowOutput
+"autocmd FileType go nmap <Leader>dd :CocCommand
 
 
-set updatetime=300
+set updatetime=200
 
 " don't give |ins-completion-menu| messages.
 set shortmess+=c

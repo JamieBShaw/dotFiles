@@ -1,0 +1,5 @@
+android-studio
+performace-tweaks
+google-cloud-sdk
+deno
+spotify
