@@ -14,9 +14,9 @@ export PATH=$PATH:$ANDROID_HOME/emulator
 export PATH=$PATH:$ANDROID_HOME/tools
 export PATH=$PATH:$ANDROID_HOME/tools/bin
 export PATH=$PATH:$ANDROID_HOME/platform-tools
-source ~/.config/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-source ~/.config/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source ~/powerlevel10k/powerlevel10k.zsh-theme
+source ~/.config/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ~/.config/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/.config/zsh/powerlevel10k/powerlevel10k.zsh-theme
 fpath=(~/.config/.zsh/completion $fpath)
 neofetch
 
@@ -25,6 +25,7 @@ neofetch
 zstyle ':completion:*' completer _complete _ignored
 zstyle :compinstall filename '/home/james/.zshrc'
 alias -g vim="nvim"
+alias -g vi="nvim"
 alias -g vi="nvim"
 bindkey -v
 eval "$(gh completion -s zsh)"
