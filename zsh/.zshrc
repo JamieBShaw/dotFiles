@@ -26,6 +26,7 @@ zstyle ':completion:*' completer _complete _ignored
 zstyle :compinstall filename '/home/james/.zshrc'
 alias -g vim="nvim"
 alias -g vi="nvim"
+alias -g v="nvim"
 bindkey -v
 eval "$(gh completion -s zsh)"
 # End of lines added by compinstall
