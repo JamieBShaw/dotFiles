@@ -7,7 +7,8 @@
   "snippets.userSnippetsDirectory": "~/.config/nvim/snips",
   "snippets.extends": {
     "typescript": ["typescriptreact"],
-    "typescriptreact": ["typescript"]
+    "typescriptreact": ["typescript"],
+    "go": ["go"]
   },
   // COC
   "coc.preferences.bracketEnterImprove": true,
@@ -53,6 +54,7 @@
   "python.formatting.provider": "black",
   "python.autoUpdateLanguageServer": true,
   "python.analysis.diagnosticEnabled": true,
+  // Language Server (Golang)
   "languageserver": {
     "golang": {
       "command": "/home/james/go/bin/gopls",
@@ -60,6 +62,7 @@
       "filetypes": ["go"],
       "initializationOptions": {
         "usePlaceholders": true,
+        "comleteUnimported": true,
         "hoverKind": "FullDocumentation",
         "analyses": {
           "unreachable": true,

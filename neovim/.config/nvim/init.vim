@@ -19,7 +19,6 @@ Plug 'zacanger/angr.vim'
 Plug 'Yggdroot/indentLine'
 Plug 'ap/vim-css-color' "Displays a preview of colors with CS
 Plug 'luochen1990/rainbow'
-Plug 'frazrepo/vim-rainbow'
 Plug 'mbbill/undotree'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
@@ -44,8 +43,8 @@ filetype plugin on
 
 set hidden
 set noerrorbells
-set tabstop=2 softtabstop=2
-set shiftwidth=2
+set tabstop=4 softtabstop=4
+set shiftwidth=4
 set expandtab
 set smartindent
 set relativenumber
@@ -69,12 +68,12 @@ set wildmenu
 set wildignore+=**/node_modules/**
 set termguicolors
 set smarttab
+set guitablabel=%N/\ %t\ %M
 
 if exists('+termguicolors')
     let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
     let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 endif
-
 
 colorscheme angr
 set background=dark
@@ -84,7 +83,8 @@ highlight CursorLine cterm=NONE
 
 "Quickscopre highlight
 let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
-highlight QuickScopePrimary cterm=underline
+highlight QuickScopePrimary guifg='#00C7DF' gui=underline ctermfg=155 cterm=underline
+highlight QuickScopeSecondary guifg='#afff5f' gui=underline ctermfg=81 cterm=underline
 
 
 " Javascript
@@ -114,6 +114,11 @@ let g:coc_global_extensions = [
 
 "Airline
 let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#formatter = 'jsformatter'
+let g:airline_theme = 'onedark'
+set showtabline=2
+
 
 "Vim Go
 autocmd BufWritePre *.go :call CocAction('runCommand', 'editor.action.organizeImport')
@@ -132,7 +137,7 @@ let g:go_highlight_build_constraints = 1
 let g:go_def_mapping_enabled = 0
 let g:go_term_enabled = 1
 let g:go_term_height = 300
-  let g:go_term_width = 300
+let g:go_term_width = 300
 
 "let g:go_auto_sameids = 1
 
@@ -216,7 +221,7 @@ let g:vem_tabline_show_icon = 1
 "autocmd FileType go nmap <Leader>dd :CocCommand
 
 
-set updatetime=200
+set updatetime=100
 
 " don't give |ins-completion-menu| messages.
 set shortmess+=c
