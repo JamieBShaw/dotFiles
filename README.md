@@ -6,11 +6,13 @@
 - Stow dotFiles
 - install zsh-plugins from git
 
+
 ## Vim-plug
 
 Run sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
        
+Above command runs in Alacritty not Konsole       
 Check vim-plug path in init.vim 
 
 ## STOW
@@ -23,6 +25,15 @@ stow -t ~/.config/programmfolder -d . programmName
 May require you to :checkhealth provider, if issues with python2 and 3 do below:
 
 pip3 install pynvim
+
+## Node
+
+if error:
+https://stackoverflow.com/questions/62873601/usr-local-bin-node-undefined-symbol-nghttp2-option-set-max-settings-erro-whe
+
+install libnghttp2
+
+sudo pacman -S libnghttp2
 
 
 ## zsh configuration:
