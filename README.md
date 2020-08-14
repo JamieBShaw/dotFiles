@@ -1,7 +1,15 @@
 # JBS - .Files
 
+## Todo
+- Make Swap file
+- Install vim-plug
+- Stow dotFiles
+- install zsh-plugins from git
 
-## Make Swap file
+## Vim-plug
+
+Run sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
 ## STOW
 
